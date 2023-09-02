@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reg.css' %}">
+    <title>Register</title>
+
+</head>
+<body>
+        <!-- Sign up -->
+        <section id="signup">
+            <div class="image-preview">
+                <figure>
+                    <img src="{%static 'img/img.png'%}" alt="">
+                </figure>
+            </div>
+            <div class="form">
+                <form action="" method="post">
+                    <h1>Sign Up</h1>
+                    {%for message in messages%}
+                    <h1>{{message}}</h1>
+                    {%endfor%}
+                    {%csrf_token%}
+                    <label for="Name">Username: <input type="text" name="username"></label>
+                    <label for="Gmail">Email(optional): <input type="email" name="email"></label>
+                    <label for="password1">Password: <input type="password" name="password"></label>
+                    <label for="password2">Confirm Password: <input type="password" name="password2"></label>
+                    <button>Create Account</button>
+                    <p>Already have an account?
+                        <a href="login">Log In</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+</body>
+</html>

@@ -1,0 +1,13 @@
+asgiref @ file:///C:/ci_311/asgiref_1676448296195/work
+certifi==2023.7.22
+charset-normalizer==3.2.0
+Django @ file:///C:/ci_311/django_1676469589007/work
+django-tinymce==3.6.1
+idna==3.4
+Pillow==10.0.0
+pytz==2023.3
+requests==2.31.0
+sqlparse @ file:///C:/b/abs_88361ub_qu/croot/sqlparse_1690904577514/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+urllib3==2.0.4
+whitenoise==6.5.0
