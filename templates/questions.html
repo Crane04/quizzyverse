@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Exam Questions</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'questions.css' %}">
+
+</head>
+<body>
+    <!-- Header Section -->
+    {% include 'extensions/header.html' %}
+    
+    <section id="container">
+        <h1>
+            <a href="/exam/add/{{ user }}/{{ title }}">Click to Add new Question(s)</a>
+        </h1>
+        <section id="questions">
+            {% for question in questions %}
+            <section class="unit-question">
+                <article>
+                    {{ question.question | safe }}
+                </article>
+                <div class="edit-delete">
+                    <form method = "post">
+                        {% csrf_token %}
+                        <input type="hidden" name="del_question" value="{{ question.id }}">
+                        <button>Delete</button>
+                    </form>
+                    <a href="/exam/edit/{{ user }}/{{ title }}/{{ question.id }}">Edit</a>
+                </div>
+            </section>
+            <hr>
+            {% endfor %}
+        </section>
+    </section>
+    <script src="{% static '/js/delqstn.js' %}"></script>
+</body>
+</html>

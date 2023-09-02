@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'error.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    {% include 'extensions/header.html' %}
+
+    <div id="container">
+        <figure>
+            <img src="{% static 'img/404.png' %}" alt="">
+            <figcaption>
+                Sorry, this page doesn't exist!
+            </figcaption>
+            <a href="/" class="current">Go back home</a>
+        </figure>
+    </div>
+</body>
+
+</html>

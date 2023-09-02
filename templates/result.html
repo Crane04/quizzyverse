@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result | {{ user.username }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'result.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <div class="result_box">
+            <div class="image-box">
+                <img src="{% static 'img.png' %}" alt="">
+            </div>
+            <div class="name">Dear {{ user.username }} </div>
+            <div class="complete_text">You've completed the Exam!</div>
+            <div class="score_text">
+                
+                You Scored {{ percentage }} out of 100
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

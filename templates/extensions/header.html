@@ -1,0 +1,29 @@
+{% block content %}
+<style>
+    a:hover{
+        text-decoration: underline;
+    }
+    @media(max-width : 700px){
+        #container{
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
+</style>
+<section id="header">
+    <header>
+        <!-- Brand Name -->
+        <h1><a href="/">Examiner</a></h1>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="/new">Home</a></li>
+                <li><a href="/myexams">My Exams</a></li>
+                <li><a href="/followexams">Follow Exams</a></li>
+            </ul>
+        </nav>
+    </header>
+</section>
+
+{% endblock %}

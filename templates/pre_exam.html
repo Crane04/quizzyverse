@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'pre-exam.css' %}">
+    <!-- FontAweome CDN Link for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Description</span></div>
+            <div class="info-list">
+                <div class="info">Name of this Exam is <span>{{ title }}</span></div>
+                <div class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, aut?</span></div>
+
+            </div>
+            
+            <div class="info-title"><span> Rules of this Exam.</span></div>
+            <div class="info-list">
+                <div class="info">1. You will have only <span>{{ exam.duration }} minutes</span> for the entire exam.</div>
+                <div class="info">2. The Exam will start by <span>{{ exam.time_st }}</span> and end by <span>{{ exam.time_end }}</span></div>
+                <div class="info">3. You are allowed to take this exam only once</div>
+                <div class="info">4. You can't exit from the Exam while the Exam is on going .</div>
+                <div class="info">5. You will get your result immediately in Percentages.</div>
+            </div>
+
+            <div class="buttons">
+                {% if user.is_authenticated %}
+
+                    {% if done_exam == True %}
+                        <h3>You've taken this Exam already. Score : {{ result.score }}%<span></span></a></h3>
+                    {% else %}
+                        {% if current_time == True %}
+                        <button class="quit">Exit Exam</button>
+                        <form action="/exam/{{ examiner }}/{{ title }}" method="POST">
+                            {% csrf_token %}
+                            <button class="restart">Continue</button>
+                        </form>
+
+                        {% else %}
+                            <h3>Check time frame for this Exam!</h3>
+                        {% endif %}
+
+                    {% endif %}
+                {% else %}
+                    <h2>You are not logged in; sign in <a href="/signin">here</a></h2>
+                {% endif %}
+                </div>
+
+
+    </div>
+    <script>
+        const start_btn = document.querySelector(".start_btn"),
+        info_box = document.querySelector(".info_box"),
+        quit = document.querySelector(".quit")
+
+
+        function gohome(){
+            window.location.href = ("/")
+        }
+        quit.addEventListener("click", gohome)
+    </script>
+
+</body>
+</html>

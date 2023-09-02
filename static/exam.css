@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    body{
+        background-color: #007bff;
+        height: 100vh;
+    }
+    .container{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .container .exam-section{
+        margin-left: 100px;
+        background-color: #fff;
+        height: fit-content;
+        border-radius: 12px;
+        width: 550px;
+    }
+    .container .exam-section header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        border: none;
+        box-shadow: 0px 4px 9px 1px rgba(0,0,0,0.1);
+    }
+    .container .exam-section header .title{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .container .exam-section header .time{
+        color: #004085;
+        background: #cce5ff;
+        border: 1px solid #b8daff;
+        height: 45px;
+        padding: 0 8px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 200px;
+    }
+    .container .exam-section header .time .txt{
+        font-weight: 400;
+        font-size: 17px;
+        user-select: none;
+    }
+    .container .exam-section header .time .time-left{
+        font-size: 18px;
+        font-weight: 500;
+        height: 30px;
+        width: 90px;
+        color: #fff;
+        border-radius: 5px;
+        line-height: 30px;
+        text-align: center;
+        background: #343a40;
+        border: 1px solid #343a40;
+        user-select: none;
+    }
+    main{
+        padding: 20px;
+        box-shadow: 0px 4px 9px 1px rgba(0,0,0,0.1);
+        margin-bottom: 12px;
+    }
+
+    main .options-box{
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    main .options-box .options{
+        background: aliceblue;
+        border: 1px solid #84c5fe;
+        border-radius: 5px;
+        font-size: 17px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+    main .options-box .options label{
+        width: 100%;
+        height: 100%;
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+    .exam-section button{
+        height: 40px;
+        padding: 0 13px;
+        font-size: 18px;
+        font-weight: 400;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        border-radius: 5px;
+        background: #007bff;
+        border: 1px solid #007bff;
+        line-height: 10px;
+        transform: scale(0.95);
+        transition: all 0.3s ease;
+    }
+    main button{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+    input[type='radio']{
+        display: none;
+    }
+    input[type='radio']:checked+div{
+        color: #191557;
+        background: #c7c3e6;
+        border: 1px solid #d9d4ed;
+    }
+    .monitor-progress{
+        text-align: center;
+        font-weight: bold;
+    }
+    footer{
+        padding: 10px 20px 10px 20px ;
+    }
+    footer .buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+    aside{
+        margin-right: 100px;
+        background-color: #fff;
+        min-height: 250px;
+        width: 300px;
+        height: fit-content;
+        padding: 8px;
+        border-radius: 12px;
+    }
+    .hidden{
+        display: none;
+    }
+    .pagination button{
+        width: 35px;
+        height: 30px;
+        margin: 3px;
+        background-color: #007bff;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+    }
+    .pagination .active{
+        background-color: #f00;
+        color: white;
+        border: 2px solid #f00;
+
+    }
+    .answered{
+        background-color: #008000 !important;
+    }
+    .question-box img{
+        width: 90%;
+        display: block !important;
+    }
+
+    .question-box{
+        height: fit-content;
+    }
+    .calculator{
+        background-color: transparent;
+        width: 100%;
+        position: fixed;
+        display: none;
+        justify-content: center;
+        height: 100%;
+        z-index: 1;
+    }
+    .calculator-container{
+        margin-top: 10px;
+        background-color: #fff;
+        height: fit-content;
+        width: 350px;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow:  2px 2px 2px 2px rgba(0,0,0,.4);
+    }
+    .calculator-container .calc-header{
+        margin-top: 20px;
+    }
+    .calculator-container input,.calculator-container button{
+        width: 100%;
+        height: 35px;
+        font-size: 15px;
+        padding: 5px;
+    }
+    .calculator-container button{
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 4px;
+    }
+    .calculator-container button:hover{
+        opacity: .8;
+    }
+    ul{
+        list-style: none;
+    }
+    .answer-box{
+        height: 35px;
+        text-align: right;
+        font-size: 30px;
+        font-weight: bolder;
+        margin-bottom: 12px;
+        margin-top: 12px; 
+    }
+    .settings{
+        display: flex;
+        flex-direction:row ;
+    }
+    .calculator-icon{
+        width: 20px;
+        height: 40px;
+        color: #007bff;
+        margin-right:20px ;
+    }
+
+    @media(max-width:1200px){
+        .container{
+            display: flex;
+            height: min-content;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .exam-section{
+            margin-left: 0px;
+            margin-bottom: 25px;
+        }
+        aside{
+            margin-right: 0px;
+            background-color: #fff;
+            min-height: 100px;
+            width: 300px;
+            height: fit-content;
+            padding: 8px;
+            border-radius: 12px;
+        }
+    }
+
+    @media(max-width: 600px){
+        .container .exam-section{
+            width: 450px;
+        }
+        .container .exam-section header .title{
+            font-size: 20px;
+            font-weight: 550;
+        }
+        .container .exam-section header .time{
+            color: #004085;
+            background: #cce5ff;
+            border: 1px solid #b8daff;
+            height: 45px;
+            padding: 0 5px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 200px;
+        }
+    }

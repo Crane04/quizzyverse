@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'addquestion.css' %}">
+    <script src="https://cdn.tiny.cloud/1/vgdjggwe5whnyqo381hyevfztn5rw6dce8pgcclec38q61j6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    {% include 'extensions/header.html' %}
+    <section id="container">
+        <section id="add">
+            <main>
+                <h1>
+                    <a href="/exam/questions/{{ user }}/{{ title }}">
+                        Click to view your Questions...
+                    </a>
+                </h1>
+                <h1>
+                    Edit Question:
+                </h1>
+
+                    {% for message in messages %}
+
+                        <h1>{{ message }}</h1>
+
+                    {% endfor %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <label>
+                        Question: <br>
+                        <textarea name="edit_question">{{ question.question }}</textarea>
+                    </label>
+
+                    <label>
+                        Option A: <br>
+                        <textarea name="opA">{{ question.op1 }}</textarea>
+                    </label>
+
+                    <label>
+                        Option B: <br>
+                        <textarea name="opB"> {{ question.op2 }}</textarea>
+                    </label>
+
+                    <label>
+                        Option C: <br>
+
+                        <textarea name="opC">{{ question.op3 }}</textarea>
+                    </label>
+
+                    <label>
+                        Option D: <br>
+                        <textarea name="opD">{{ question.op4 }}</textarea>
+                    </label>
+                    <label>
+                        Answer: 
+                        <select name="answer">
+                            <option value="">------</option>
+                            <option value="a">Option A</option>
+                            <option value="b">Option B</option>
+                            <option value="c">Option C</option>
+                            <option value="d">Option D</option>
+                        </select>
+                    </label>
+                    <br>
+                    <button>Add Question</button>
+                </form>
+            </main>
+        </section>
+    </section>
+    <script src="{% static  'tinymce.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+#container{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 40px;
+}
+#container article{
+    font-size: x-large;
+    font-weight: bold;
+}
+button{
+    width: 90px;
+    height: 30px;
+    font-size: inherit;
+    margin-right: 12px;
+}
+.edit-delete{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+.edit-delete form{
+    width: fit-content;
+}
+.edit-delete a{
+    color: #fff;
+    background-color: #00f;
+    width: 90px;
+    text-align: center;
+    height: 30px;
+}
+.edit-delete a:hover, .edit-delete button:hover{
+    background-color: blueviolet;
+}
+.unit-question{
+    margin-bottom: 50px;
+}
+article{
+    margin-bottom: 30px;
+}
+#container h1 a{
+    color: #00f;
+}
+h1 a:hover{
+    color: blueviolet;
+}

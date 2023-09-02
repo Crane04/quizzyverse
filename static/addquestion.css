@@ -1,0 +1,28 @@
+#container{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+}
+#container a h1, span{
+    color: blue;
+    font-size: 25px;
+}
+span{
+    font-size: 15px;
+}
+
+#add{
+    color: #00f;
+}
+#add main form label textarea{
+    width: 100% !important;
+}
+form{
+    width: 100%;
+}
+main h1 a{
+    color: #00f;
+}
+main h1 a:hover{
+    color: blueviolet;
+}

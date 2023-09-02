@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ exam.title }}</title>
+    <link rel="stylesheet" href="{% static 'exam.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-container">
+            <div class="calc-header">
+                <h3>Mini Calculator</h3>
+            </div>
+            <div class="boxes">
+                <div class="question-box">
+                    <input type="text" placeholder="Enter Question...+-*/" spellcheck="false">
+                </div>
+                <div class="answer-box">
+                    0
+                </div>
+            </div>
+            <div class="submit">
+                <button onclick="solve()">Solve</button>
+                <button onclick="calculator_state('none')">Close</button>
+            </div>
+            <div class="info">
+                <u>Take Note</u>
+                <ul>
+                    <li>You must click "Close" Button to be able to Contunue</li>
+                    <li>To use Functions; start the Function with a Capital letter; i.e Sin(12)</li>
+                    <li>To use inverse Trig Functions; begin with 'a'; i.e aSin(30)</li>
+                    <li>^ for raise to power and Sqrt for square root; i.e sqrt(4)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="exam-section">
+            <header>
+                <div class="title">
+                    {{ exam.title }}
+                </div>
+                <div class="settings">
+                    <div class="calculator-icon" onclick="calculator_state('flex')">
+                        <i class="fa fa-calculator" aria-hidden="true" style="font-size: xx-large; font-weight: bolder;"></i>
+                    </div>
+                    <div class="time">
+                        <span class="txt">Time Left: </span>
+                        <span class="time-left">00 : 00</span>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <form method="post" action="/result">
+                    {% csrf_token %}
+                    {% for question in questions %}
+                    <div class="unit-question">
+                        <div class="question-box">
+                            <h2><span class="q-num"></span> {{ question.question | safe }}</h2>
+                        </div>
+                        <style>
+                            .options{
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .options img{
+                                display: block;
+                                width: 90%;
+                                display: block !important;
+                                height: 120px;
+                            }
+                        </style>
+                        <div class="options-box">
+                            <input type="radio" name="{{ question.question }}" id="op1{{ question.id }}" value="a"><div class="op1 options"><label for="op1{{ question.id }}">{{ question.op1 | safe }}</label></div>
+                            <input type="radio" name="{{ question.question }}" id="op2{{ question.id }}" value="b"><div class="op2 options"><label for="op2{{ question.id }}">{{ question.op2 | safe }}</label></div>
+                            <input type="radio" name="{{ question.question }}" id="op3{{ question.id }}" value="c"><div class="op3 options"><label for="op3{{ question.id }}">{{ question.op3 | safe}}</label></div>
+                            <input type="radio" name="{{ question.question }}" id="op4{{ question.id }}" value="d"><div class="op4 options"><label for="op4{{ question.id }}">{{ question.op4 | safe}}</label></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button id="submit">Submit</button>
+                    <button id="hide_submit" style="display:none"></button>
+                </form>
+                <div class="monitor-progress">
+                    <p>You've answered <span id="count-answered">0</span> of <span id="total-questions"></span> Questions</p>
+                </div>
+            </main>
+            <footer>
+                <div class="buttons">
+                    <button id="prev">&lt; Prev</button>
+                    <button id="next">Next &gt;</button>
+                </div>
+            </footer>
+        </div>
+        <aside>
+            <h2>Question Numbers</h2>
+            <div class="pagination">
+            </div>
+    </aside>
+    </div>
+
+    <script src="{% static 'js/exam-script.js' %}"></script>
+    <script src="{% static 'js/pagination.js' %}"></script>
+    <script src="{% static 'js/calculator.js' %}"></script>
+    <script src="{% static 'js/timer.js' %}"></script>
+
+</body>
+</html>
