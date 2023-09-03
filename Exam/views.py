@@ -198,7 +198,7 @@ def pre_exam(request, user, title):
                 current_time =  False
         else:
             current_time = False
-        result = None
+        # result = None
         context = {
             "examiner": user,
             "title": title,
